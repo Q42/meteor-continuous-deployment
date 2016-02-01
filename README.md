@@ -11,7 +11,7 @@ Last but not least, there was still some work to be done to let __Travis__ _safe
 
 To give you a heads up, and to make you understand why you are going to setup the things you are about to setup, first an explanation on how to use the manage.sh script.
 
-```sh $ ./manage.sh [ENVIRONMENT] [COMMAND]```
+``` ./manage.sh [ENVIRONMENT] [COMMAND]```
 
 Environments are for example "test", "acceptance", "production" etc. The command is any command [MUP](https://github.com/arunoda/meteor-up) has to offer.
 

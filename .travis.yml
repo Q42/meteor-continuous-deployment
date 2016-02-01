@@ -1,0 +1,20 @@
+sudo: required
+language: node_js
+node_js:
+- '0.12'
+before_install:
+- curl https://install.meteor.com/ | sh
+- npm install
+- npm install -g mup
+after_success:
+# Paste the openssl tar decryption line here E.G.:
+# - openssl aes-256-cbc -K $some_encrypted_71532523_key -iv $some_other_encrypted_7772dsfs7_iv
+#  -in .travis.tar.enc -out .travis.tar -d
+- tar xvf .travis.tar
+- shopt -s dotglob; cp -R .travis/* .
+- rm -r .travis/
+- sh .travis-deploy.sh
+services:
+- mongodb
+script:
+#- npm test

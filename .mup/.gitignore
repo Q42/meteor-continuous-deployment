@@ -1,0 +1,5 @@
+# Mup files inside this folder are either personal
+# or generated. They shouldn't be uploaded to git
+mup.json
+mup.private.json
+settings.json

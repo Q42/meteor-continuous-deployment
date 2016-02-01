@@ -1,0 +1,28 @@
+# Just JetBrains IDE thing
+# --------------------
+*.iml
+## Directory-based project format:
+.idea/
+## File-based project format:
+*.ipr
+*.iws
+
+# Apple junk
+# ----------
+## Default folder junk
+.DS_Store
+.AppleDouble
+.LSOverride
+## Icon must end with two \r
+Icon
+## Thumbnails
+._*
+
+# Meteor / CI stuffs
+# ------
+.travis.tar
+.travis/
+.meteor/local
+.meteor/meteorite
+node_modules
+cordova-plugins

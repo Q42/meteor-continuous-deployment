@@ -1,0 +1,9 @@
+{
+  "servers": [
+    {
+      "username": "",
+      "password": "",
+      "pem": "~/.ssh/id_rsa"
+    }
+  ]
+}

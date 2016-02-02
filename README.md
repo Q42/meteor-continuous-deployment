@@ -12,7 +12,7 @@ _This entire setup assumes you have downloaded all the files and folders from th
 
 ### 01. Multiple MUP management
 
-To give you a heads up, and to make you understand why you are going to setup the things you are about to setup, first an explanation on how to use the manage.sh script.
+To give you a heads up, and to make you understand why you are going to setup the things you are about to setup, first an explanation on how to use the [manage.sh](https://github.com/Q42/meteor-continuous-deployment/blob/master/manage.sh) script.
 
 ``` ./manage.sh [ENVIRONMENT] [COMMAND]```
 
@@ -48,7 +48,7 @@ If for some reason you're uncomfertable with executing a bash script and would l
 
 #### Important last step: Tell travis which branch needs to trigger which environment!
 
-Lastly, you will need to write a little bit of bash script. Edit the __.travis-deploy.sh__ file to contain all branches that you need automatically deployed. An example if for the master branch and an example commented out else if develop branch is included with the file that can be found in this repository, so you should have a flying start there.
+Lastly, you will need to write a little bit of bash script. Edit the [__.travis-deploy.sh__](https://github.com/Q42/meteor-continuous-deployment/blob/master/.travis-deploy.sh) file so it contains all branches that you need automatically deployed. An example _if_ for the master branch and an example (and commented out) _else if_ for the develop branch is included with the file that can be found in this repository, so you should have a flying start there.
 
 ### 03. Tests (optional)
 

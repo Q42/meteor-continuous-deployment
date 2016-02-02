@@ -7,6 +7,9 @@ Because we sometimes really need __Multiple MUP environments__ and have __multip
 Last but not least, there was still some work to be done to let __Travis__ _safely_ (test and) deploy our Meteor project to different environments depending on the branch.
 
 ## Setup
+
+_This entire setup assumes you have downloaded all the files and folders from this repository into your meteor project_
+
 ### 01. Multiple MUP management
 
 To give you a heads up, and to make you understand why you are going to setup the things you are about to setup, first an explanation on how to use the manage.sh script.
@@ -34,13 +37,13 @@ First of all, [enable travis for your repository](https://docs.travis-ci.com/use
 
 #### Do it manually
 
-If for some reason you're uncomfertable with executing a bash script and would like to do it manually, then here are the steps;
+If for some reason you're uncomfertable with executing a bash script and would like to do it manually, or if it simply doesn't work for you, then here are the steps;
 
 1. Create a folder called .travis which will never be included in your git! It's just for now so we can create a .tar file. 
 2. Inside this folder, generate your SSH keys both private and public. You can do this by typing; ``ssh-keygen -q -t rsa -N "" -C travis@meteor-cd -f ./id_rsa``. This will create the id_rsa and id_rsa.pub file for the user travis@meteor-cd. It will be created without a passphrase, because Travis is not very fond of passphrases.
 3. Copy all the mup.private.json files including the folders to the newly created .travis folder and change the data inside the files to whatever applies to travis. E.G. you should end up with .travis/.mup/production/mup.private.json and very importantly the .travis/.mup/mup.private.json file which contains the server login data, username: _"travis"_ and pem: _"../../id_rsa"_. Examples can be found below!
 4. Create a tar containing the .travis folder from and into your main project folder. You can use the following command for this: ``tar cvf .travis.tar .travis/``
-5. Now encrypt the @&$*! out of this .travis.tar using travis's own encryption tool! You can find everything you need to know about this [here](https://docs.travis-ci.com/user/encrypting-files/) but here's the ballpark. Use the command: ``gem install travis`` to install the travis command line tools. Then log in using ``travis login`` and affix --pro if it concerns a private repository. And then use ``travis encrypt-file .travis.tar``.
+5. Now encrypt the @&$*! out of this .travis.tar using travis's own encryption tool! You can find everything you need to know about this [here](https://docs.travis-ci.com/user/encrypting-files/), but here's the ballpark. Use the command: ``gem install travis`` to install the travis command line tools. Then log in using ``travis login`` and affix --pro if it concerns a private repository. And then use ``travis encrypt-file .travis.tar``.
 6. Now you should have a file called _.travis.tar.enc_ and also travis should have given you a line to add to your build script. Something like ``openssl aes-256-cbc -K etc...`` Copy this line into the .travis.yml at the beginning of the after_success build script line.
 
 #### Important last step: Tell travis which branch needs to trigger which environment!
